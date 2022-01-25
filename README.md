@@ -164,3 +164,13 @@ Password login attack against domain users:
 ![adlogin-attack-01-started](https://user-images.githubusercontent.com/60963123/81509021-cd3c4a00-9318-11ea-919f-9c6fd7ccfaed.jpg)
 
 For more information, visit https://www.infosecmatter.com/active-directory-brute-force-attack-tool-in-powershell-adlogin-ps1/
+
+
+
+Useful powershell commands
+////////////////Scan a range quiet
+1..20 | % {"10.10.10.$($_): $(Test-Connection -count 1 -comp 10.10.10.$($_) -quiet)"}
+////////////////Scan a range and attempt TCP connection to an specific port
+0..255 | foreach {Test-NetConnection 10.10.10.$_ -Port 443} | Select ComputerName,TcpTestSucceeded
+
+
