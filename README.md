@@ -172,5 +172,3 @@ Useful powershell commands
 1..20 | % {"10.10.10.$($_): $(Test-Connection -count 1 -comp 10.10.10.$($_) -quiet)"}
 ////////////////Scan a range and attempt TCP connection to an specific port
 0..255 | foreach {Test-NetConnection 10.10.10.$_ -Port 443} | Select ComputerName,TcpTestSucceeded
-
-
